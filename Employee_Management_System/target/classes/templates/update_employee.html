@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee Management System</title>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+		<h1>Employee Management System</h1>
+		<hr>
+		<h2>Update Employee</h2>
+
+		<form action="#" th:action="@{/saveEmployee}" th:object="${employee}"
+			method="POST">
+			
+			<!-- Add hidden form field to handle update -->
+			<input type="hidden" th:field="*{id}" />
+			
+			<div class="row">
+      <div class="col">
+       <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" th:field="*{firstName}" class="form-control mb-4 col-6"  required>
+        </div>
+
+        <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input type="text" th:field="*{lastName}" class="form-control mb-4 col-6"  required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email"  th:field="*{email}" class="form-control mb-4 col-6"  required>
+        </div>
+
+        <div class="form-group">
+            <label for="contact">Contact:</label>
+            <input type="tel" th:field="*{contact}" class="form-control mb-4 col-6"  required>
+        </div>
+
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <textarea id="address" th:field="*{address}" class="form-control mb-4 col-6"  required></textarea>
+        </div>
+      </div>
+ 
+    <div class="col">
+  
+        <div class="form-group">
+            <label for="salary">Salary (Per Annum):</label>
+            <input type="number" id="salary" th:field="*{salary}"  class="form-control mb-4 col-6"  required>
+        </div>
+
+        <div class="form-group">
+            <label for="designation">Designation:</label>
+            <input type="text" id="designation" th:field="*{designation}" class="form-control mb-4 col-6"  required>
+        </div>
+
+        <div class="form-group">
+            <label for="role">Role:</label>
+            <input type="text" id="role" th:field="*{role}" class="form-control mb-4 col-6"  required>
+        </div>
+        
+        <div class="form-group">
+            <label for="role">Experience(in years) :</label>
+            <input type="number" id="experience" th:field="*{experience}" class="form-control mb-4 col-6"  required>
+        </div>
+        
+        <div class="form-group">
+            <label for="role">Current Project Details:</label>
+             <textarea id="currentProjectDetails" th:field="*{currentProjectDetails}" class="form-control  mb-4 col-6"  required></textarea>
+        </div>
+    </div>
+  </div>
+				
+				<button type="submit" class="btn btn-info col-2"> Update Employee</button>
+		</form>
+		
+		<hr>
+		
+		<a th:href = "@{/}"> Back to Employee List</a>
+	</div>
+</body>
+</html>

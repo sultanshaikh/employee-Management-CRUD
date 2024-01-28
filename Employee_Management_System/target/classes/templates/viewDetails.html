@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Add your custom CSS here -->
+    <title>Employee Details</title>
+</head>
+
+<body>
+
+<!-- Create navigation bar (header) -->
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#" th:href="@{/}">Employee Management System</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
+            aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item" sec:authorize="isAuthenticated()">
+                    <a class="nav-link" th:href="@{/logout}">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<br>
+<br>
+<div class="container my-2">
+    <h1>Employees Details</h1>
+    <!-- Display employee details in a resume style -->
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header">
+                <h2 th:text="${employee.firstName + ' ' + employee.lastName}"></h2>
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li><strong>Email:</strong> <span th:text="${employee.email}"></span></li>
+                    <li><strong>Contact:</strong> <span th:text="${employee.contact}"></span></li>
+                    <!-- Add other details as needed -->
+                    <li><strong>Address:</strong> <span th:text="${employee.address}"></span></li>
+                    <li><strong>Salary (per annum):</strong> <span th:text="${employee.salary}"></span></li>
+                    <li><strong>Designation:</strong> <span th:text="${employee.designation}"></span></li>
+                    <li><strong>Role:</strong> <span th:text="${employee.role}"></span></li>
+                    <li><strong>Experience(in years):</strong> <span th:text="${employee.experience}"></span></li>
+                    <li><strong>Project Experience Summary:</strong> <span th:text="${employee.currentProjectDetails}"></span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
